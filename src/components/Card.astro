@@ -8,10 +8,9 @@ export interface Props {
     instagram: string;
     website: string;
   };
-  className?: string;
 }
 
-const { title, links, className = "" } = Astro.props;
+const { title, links } = Astro.props;
 ---
 
 <article class="card">

@@ -1,20 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+
+import { bakeriesData } from "../data/data";
+
+const title = "Piekarnie rzemieślnicze";
 ---
 
-<Layout title="Piekarnie rzemieślnicze">
+<Layout title={title}>
   <main class="container">
-    <h1>Piekarni rzemieślnicze</h1>
+    <h1>{title}</h1>
 
     <div class="cards-list">
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
-      <Card title="Card" links={{ instagram: "", facebook: "", website: "" }} />
+      {
+        bakeriesData.map(
+          ({ name, links: { facebook, instagram, website } }) => (
+            <Card title={name} links={{ instagram, facebook, website }} />
+          )
+        )
+      }
     </div>
   </main>
 </Layout>
@@ -23,7 +27,8 @@ import Card from "../components/Card.astro";
   .cards-list {
     gap: 1.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-rows: repeat(auto-fit, , 1fr);
+    margin-bottom: 2.5rem;
   }
 </style>
