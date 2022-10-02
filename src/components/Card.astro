@@ -13,7 +13,7 @@ export interface Props {
 const { title, links } = Astro.props;
 ---
 
-<article class="card">
+<article class="card" data-theme="light">
   <h3>{title}</h3>
 
   <div class="card-links">
@@ -27,10 +27,12 @@ const { title, links } = Astro.props;
   .card {
     flex: 1;
     margin: 0;
+    /* padding: 1.5rem; */
   }
 
   .card-links {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
   }
 </style>

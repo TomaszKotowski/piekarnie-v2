@@ -27,8 +27,14 @@ const title = "Piekarnie rzemieślnicze";
   .cards-list {
     gap: 1.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-template-rows: repeat(auto-fit, , 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* grid-template-rows: repeat(3, 1fr); */
     margin-bottom: 2.5rem;
+  }
+
+  @media screen and (max-width: 375px) {
+    .cards-list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
   }
 </style>
