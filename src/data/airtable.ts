@@ -1,11 +1,7 @@
-import { base, configure } from "airtable";
+import Airtable from "airtable";
+import type { Fields } from "../../types/airtable";
 
-export type Fields = {
-  name: string;
-  facebook: string;
-  instagram: string;
-  website: string;
-};
+const { configure, base } = Airtable;
 
 configure({
   endpointUrl: "https://api.airtable.com",

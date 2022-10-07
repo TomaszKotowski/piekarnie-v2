@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Fields } from "../data/airtable";
+  import type { Fields } from "../../types/airtable";
   import Card from "./Card.svelte";
 
   export let data: Fields[];
