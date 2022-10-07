@@ -3,6 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
 import { bakeriesData } from "../data/data";
+import { base, allBakeries } from "../data/airtable";
+
+const data = await allBakeries();
+
+console.log("data", data);
 
 const title = "Piekarnie rzemieślnicze";
 ---
@@ -13,11 +18,14 @@ const title = "Piekarnie rzemieślnicze";
 
     <div class="cards-list">
       {
-        bakeriesData.map(
-          ({ name, links: { facebook, instagram, website } }) => (
-            <Card title={name} links={{ instagram, facebook, website }} />
-          )
-        )
+        data.map(({ name, facebook, instagram, website }) => (
+          <Card
+            title={name}
+            facebook={facebook}
+            instagram={instagram}
+            website={website}
+          />
+        ))
       }
     </div>
   </main>
@@ -28,7 +36,6 @@ const title = "Piekarnie rzemieślnicze";
     gap: 1.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* grid-template-rows: repeat(3, 1fr); */
     margin-bottom: 2.5rem;
   }
 

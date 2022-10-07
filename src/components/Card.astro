@@ -3,23 +3,21 @@ import ExternalLink from "./ExtarnalLink.astro";
 
 export interface Props {
   title: string;
-  links: {
-    facebook: string;
-    instagram: string;
-    website: string;
-  };
+  facebook: string;
+  instagram: string;
+  website: string;
 }
 
-const { title, links } = Astro.props;
+const { title, facebook, instagram, website } = Astro.props;
 ---
 
 <article class="card" data-theme="light">
   <h3>{title}</h3>
 
   <div class="card-links">
-    <ExternalLink href={links.facebook}>Facebook</ExternalLink>
-    <ExternalLink href={links.instagram}>Instagram</ExternalLink>
-    <ExternalLink href={links.website}>Strona</ExternalLink>
+    <ExternalLink href={facebook}>Facebook</ExternalLink>
+    <ExternalLink href={instagram}>Instagram</ExternalLink>
+    <ExternalLink href={website}>Strona</ExternalLink>
   </div>
 </article>
 
