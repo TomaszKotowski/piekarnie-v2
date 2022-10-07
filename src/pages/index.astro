@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import CardsList from "../components/CardsList.svelte";
+import SearchInput from "../components/SearchInput.svelte";
 
 import { allBakeries } from "../data/airtable";
 
@@ -13,32 +14,11 @@ const title = "Piekarnie rzemieślnicze";
   <main class="container">
     <h1>{title}</h1>
 
-    <div class="cards-list">
-      {
-        data.map(({ name, facebook, instagram, website }) => (
-          <Card
-            title={name}
-            facebook={facebook}
-            instagram={instagram}
-            website={website}
-          />
-        ))
-      }
-    </div>
+    <SearchInput client:load />
+    <CardsList data={data} />
   </main>
 </Layout>
 
 <style>
-  .cards-list {
-    gap: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-bottom: 2.5rem;
-  }
 
-  @media screen and (max-width: 375px) {
-    .cards-list {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-  }
 </style>
