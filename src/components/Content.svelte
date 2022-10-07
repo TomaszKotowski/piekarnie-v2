@@ -1,13 +1,15 @@
 <script lang="ts">
+  import Fuse from "fuse.js";
+
   import type { Fields } from "../../types/airtable";
   import CardsList from "./CardsList.svelte";
 
   export let data: Fields[];
   let value = "";
 
-  $: searchData = data.filter(({ name }) =>
-    name.toLowerCase().includes(value.toLowerCase())
-  );
+  const fuse = new Fuse(data, { keys: ["name"] });
+
+  $: searchData = fuse.search(value).map(({ item }) => item);
 </script>
 
 <label for="search">
@@ -19,4 +21,5 @@
     bind:value
   />
 </label>
-<CardsList data={searchData} />
+
+<CardsList data={searchData.length > 0 ? searchData : data} />
