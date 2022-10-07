@@ -1,15 +1,26 @@
 ---
 type Props = {
   href?: string;
+  imgSrc?: string;
+  imgAlt?: string;
 };
 
-const { href } = Astro.props;
+const { href, imgSrc, imgAlt } = Astro.props;
 ---
 
 {
   href && (
     <a target="_blank" rel="noopener noreferrer" href={href}>
+      {imgSrc && <img src={imgSrc} alt={imgAlt} class="img" />}
       <slot />
     </a>
   )
 }
+<style>
+  .img {
+    background-color: white;
+    border-radius: 25%;
+    width: 32px;
+    height: 32px;
+  }
+</style>

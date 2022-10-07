@@ -11,13 +11,25 @@ export interface Props {
 const { title, facebook, instagram, website } = Astro.props;
 ---
 
-<article class="card" data-theme="light">
+<article class="grid" data-theme="light">
   <h3>{title}</h3>
 
   <div class="card-links">
-    <ExternalLink href={facebook}>Facebook</ExternalLink>
-    <ExternalLink href={instagram}>Instagram</ExternalLink>
-    <ExternalLink href={website}>Strona</ExternalLink>
+    <ExternalLink
+      href={facebook}
+      imgAlt="facebook icon"
+      imgSrc="/icons/icons8-facebook.svg"
+    />
+    <ExternalLink
+      href={instagram}
+      imgAlt="instagram icon"
+      imgSrc="/icons/icons8-instagram.svg"
+    />
+    <ExternalLink
+      href={website}
+      imgAlt="website icon"
+      imgSrc="/icons/website.svg"
+    />
   </div>
 </article>
 
