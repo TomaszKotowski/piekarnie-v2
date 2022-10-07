@@ -17,6 +17,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-bottom: 2.5rem;
+    justify-content: center;
   }
 
   @media screen and (max-width: 375px) {
