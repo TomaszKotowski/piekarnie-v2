@@ -2,12 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
-import { bakeriesData } from "../data/data";
-import { base, allBakeries } from "../data/airtable";
+import { allBakeries } from "../data/airtable";
 
 const data = await allBakeries();
-
-console.log("data", data);
 
 const title = "Piekarnie rzemieślnicze";
 ---
